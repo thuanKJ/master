@@ -22,7 +22,6 @@ func (col Collection) AddNewAccount(account models.Account) error {
 
 func (col Collection) CheckByName(name string) (bool, error) {
 	v, err := col.Cl.Find(bson.M{"username": name}).Count()
-	fmt.Println("name", v)
 	if v == 0 {
 		return false, err
 	} else {

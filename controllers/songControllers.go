@@ -20,7 +20,7 @@ func GetSongSession(typeData common.ConnectionData) {
 	return
 }
 
-// GetAllData - Get all data from mongoDB
+// GetAllData - Get all item from mongoDB
 func GetAllData(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	data, err := colSong.FindAll()
@@ -31,7 +31,7 @@ func GetAllData(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(data)
 }
 
-// GetOne - Get a data from mongoDB
+// GetOne - Get a item from mongoDB
 func GetOne(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
@@ -43,7 +43,7 @@ func GetOne(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(data)
 }
 
-// CreateOne - Create a data from mongoDB
+// CreateOne - Create a item from mongoDB
 func CreateOne(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	var song models.Song
@@ -67,7 +67,7 @@ func CreateOne(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(song)
 }
 
-// DeleteOne   delete a data from mongoDB
+// DeleteOne - Delete a item from mongoDB
 func DeleteOne(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
